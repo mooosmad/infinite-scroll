@@ -12,6 +12,8 @@ class _NowPlayingState extends State<KekePlay> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          brightness: Brightness.dark,
+          backgroundColor: Colors.black,
           title: Text(
             'Keke Tv',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),
@@ -28,19 +30,22 @@ class _NowPlayingState extends State<KekePlay> {
             )
           ],
         ),
-        body: FutureBuilder(
-          future: MovieRepository().getNowPlaying(1),
-          builder: (BuildContext c, AsyncSnapshot s) {
-            if (s.data == null) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else
-              return new MovieList(
-                playing: s.data,
-                key: UniqueKey(),
-              );
-          },
+        body: Container(
+          color: Colors.black,
+          child: FutureBuilder(
+            future: MovieRepository().getNowPlaying(1),
+            builder: (BuildContext c, AsyncSnapshot s) {
+              if (s.data == null) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else
+                return new MovieList(
+                  playing: s.data,
+                  key: UniqueKey(),
+                );
+            },
+          ),
         ));
   }
 }
@@ -138,9 +143,9 @@ class _MovieListState extends State<MovieList> {
                       RaisedButton.icon(
                         color: Colors.white,
                         shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(30.0)),
+                            borderRadius: new BorderRadius.circular(5.0)),
                         onPressed: () {},
-                        label: Text('See Details'),
+                        label: Text('Voir Details'),
                         icon: Icon(Icons.keyboard_arrow_right),
                       )
                     ],

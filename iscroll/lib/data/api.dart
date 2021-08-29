@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 class MovieRepository {
   Future<Playing> getNowPlaying(int currentPage) async {
     var url = Uri.parse(
-        'https://api.themoviedb.org/3/movie/now_playing?api_key=b64508afff2418ed0dcf89b770586d77&language=en-EN&page=' +
+        'https://api.themoviedb.org/3/movie/now_playing?api_key=5c6df9c99f2b050b7abd9320ed5d5878&language=en-EN&page=' +
             currentPage.toString());
     final response = await http.get(url);
     if (response.statusCode == 200) {
