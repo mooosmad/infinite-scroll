@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:iscroll/data/api.dart';
 import 'package:iscroll/model/lecture.dart';
 
@@ -12,7 +13,6 @@ class _NowPlayingState extends State<KekePlay> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          brightness: Brightness.dark,
           backgroundColor: Colors.black,
           title: Text(
             'Keke Tv',
@@ -140,14 +140,16 @@ class _MovieListState extends State<MovieList> {
                             style: TextStyle(color: Colors.white)),
                       ),
                       // ignore: deprecated_member_use
-                      RaisedButton.icon(
-                        color: Colors.white,
-                        shape: new RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(5.0)),
-                        onPressed: () {},
-                        label: Text('Voir Details'),
-                        icon: Icon(Icons.keyboard_arrow_right),
-                      )
+
+                      GestureDetector(
+                        onTap: () {},
+                        child: Row(
+                          children: [
+                            Text('Voir Details'),
+                            Icon(Icons.keyboard_arrow_right),
+                          ],
+                        ),
+                      ),
                     ],
                   )
                 ],
